@@ -3385,10 +3385,3 @@ export default function App() {
     </div>
   );
 }
-current={currentScreen} onNavigate={navigate} t={t} />}
-      </PhoneFrame>
-      <ControlPanel c={c} theme={theme} setTheme={setTheme} locale={locale} setLocale={setLocale} brand={brand} onWhiteLabel={() => setShowWL(true)} />
-      {showWL && <WhiteLabelPanel c={c} brand={brand} setBrand={setBrand} onClose={() => setShowWL(false)} t={t} />}
-    </div>
-  );
-}
