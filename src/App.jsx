@@ -1158,8 +1158,14 @@ function ScreenSplash({ c, t, brand, navigate }) {
             animation: `scaleIn 600ms ${SPRING}`,
           }}>{brand.logoEmoji}</div>
           <div style={{ textAlign: "center", marginTop: 8 }}>
-            <div style={{ fontSize: 44, fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1, color: c.text }}>
+            <div style={{ fontSize: 44, fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1, color: c.text, display: "inline-flex", alignItems: "center", gap: 10 }}>
               {brand.name}
+              <span style={{
+                fontSize: 11, fontWeight: 700, letterSpacing: "0.04em",
+                padding: "3px 8px", borderRadius: 999,
+                backgroundColor: hexA(brand.primary, 0.12), color: brand.primary,
+                verticalAlign: "middle",
+              }}>v1.1</span>
             </div>
             <div style={{ fontSize: 15, fontWeight: 500, color: c.textMuted, marginTop: 14, maxWidth: 280, textAlign: "center", lineHeight: 1.4 }}>
               {t.tagline_full}
@@ -3373,6 +3379,13 @@ export default function App() {
       <PhoneFrame c={c}>
         {renderScreen()}
         {isDriverTab && <BottomNav c={c} current={currentScreen} onNavigate={navigate} t={t} />}
+      </PhoneFrame>
+      <ControlPanel c={c} theme={theme} setTheme={setTheme} locale={locale} setLocale={setLocale} brand={brand} onWhiteLabel={() => setShowWL(true)} />
+      {showWL && <WhiteLabelPanel c={c} brand={brand} setBrand={setBrand} onClose={() => setShowWL(false)} t={t} />}
+    </div>
+  );
+}
+current={currentScreen} onNavigate={navigate} t={t} />}
       </PhoneFrame>
       <ControlPanel c={c} theme={theme} setTheme={setTheme} locale={locale} setLocale={setLocale} brand={brand} onWhiteLabel={() => setShowWL(true)} />
       {showWL && <WhiteLabelPanel c={c} brand={brand} setBrand={setBrand} onClose={() => setShowWL(false)} t={t} />}
